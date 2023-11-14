@@ -7,7 +7,9 @@ import {MovieList} from '../index.js'
 const Movies = () => {
   const [page, setPage] = useState(1)
   const {currentGenreOrCategorieName,searchQuery} = useSelector((state)=>state.currentGenreOrCategorie);
+
   const {data,error,isFetching} = useGetMovieByTypeQuery({currentGenreOrCategorieName,page ,searchQuery});
+
   if( isFetching){
     return (
       <Box display="flex" justifyContent="center" alignContent="center">
