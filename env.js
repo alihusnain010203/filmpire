@@ -1,1 +1,0 @@
-export const REACT_APP_TMDB_KEY="22a3c808c7913ac382899a19f4df7cd6";
