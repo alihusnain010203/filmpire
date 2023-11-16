@@ -1,16 +1,16 @@
 import { makeStyles } from '@mui/styles';
 const drawerWidth = 200;
 export default makeStyles((theme)=>({
-toolbar:{
-    display:"flex",
-    justifyContent:"space-evenly",
-    width:'100%',
-    height:'70px',
-    marginLeft:'100px',
-    [theme.breakpoints.down('sm')]:{
-        marginLeft:'0px',
-       flexWrap:'wrap',
-    }
+
+toolbar: {
+  height: '80px',
+  display: 'flex',
+  justifyContent: 'space-between',
+  marginLeft: '240px',
+  [theme.breakpoints.down('sm')]: {
+    marginLeft: 0,
+    flexWrap: 'wrap',
+  },
 },
 menuButton:{
     marginRight: theme.spacing(2),

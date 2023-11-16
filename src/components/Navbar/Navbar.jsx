@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
+
 import {
   AppBar,
   Toolbar,
@@ -20,11 +21,12 @@ import { Link } from "react-router-dom";
 import Sidebar from '../Sidebar/Sidebar.jsx';
 
 import { fetchToken ,createSessionId ,MovieApi } from "../../utils/index.js";
-
+import {ColorModeContext} from '../../utils/ToggleColorMode.jsx'
 import { useDispatch,useSelector} from "react-redux";
 import { setUser,selectUser } from "../../features/auth.js";
 import Search from "../Search/Search.jsx";
 const Navbar = () => {
+  const ColorMode=useContext(ColorModeContext)
   const [openMobile, setOpenMobile] = useState(false);
   const {isAuth,user}=useSelector(selectUser)
   const dispatch = useDispatch();
@@ -63,7 +65,7 @@ const token=localStorage.getItem('requestToken');
               <Menu />
             </IconButton>
           )}
-          <IconButton color="inherit" onClick={() => {}} sx={{ ml: 1 }}>
+          <IconButton color="inherit" onClick={() => {ColorMode.toggleColorMode( ) }} sx={{  }}>
             {theme.palette.mode === "dark" ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
           {!isMobile && <Search/>}
@@ -84,7 +86,7 @@ const token=localStorage.getItem('requestToken');
                 <Avatar
                   style={{ width: 30, height: 30 }}
                   alt="Profile"
-                  src={``}
+                  src={`http://image.tmdb.org/t/p/w45${user?.avatar?.tmdb?.avatar}`}
                 />
               </Button>
             )}

@@ -13,7 +13,11 @@ const App = () => {
       <main className={classes.content}>
         <div className={classes.toolbar}/>
       <Routes>
-        <Route path="/" element={<Movies />} />
+     
+      <Route path="/" element={<Movies />}>
+        <Route index element={<Movies />} />
+        <Route path="*" element={<Movies />} />
+      </Route>
         <Route path="/profile/:id" element={<Profie />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
         <Route path="/actor/:id" element={<Actor />} />

@@ -8,12 +8,16 @@ import { searchMovie } from "../../features/currentGenreOrCategorie";
 const Search = () => {
   const classes = useStyle();
   const [useQuery, seteQuery] = useState("");
+  const locataion = useLocation();
   const dispatch=useDispatch();
   const handleKeypress = (event) => {
     if(event.key === 'Enter'){
         dispatch(searchMovie(useQuery))
     }
   };
+
+  if(locataion.pathname !== '/')  return null
+
   return (
     <div className={classes.search}>
       <TextField
